@@ -12,31 +12,29 @@ router.post('/', function (req, res, next) {
         username,
         password
     } = req.body;
-    let sqlstring = `INSERT * from user where user='${username}'`
+    let sqlstring = `INSERT INTO user VALUES (NULL, '${username}','${password}')`;
+    let sqlstring2 = `SELECT * from user where user='${username}'`;
+    connection.query(sqlstring2, (err, result) => {
+        if (err) throw err
+        else {
+            if (result.length != 0) {
+                res.send({
+                    status: 1,
+                    msg: '该用户名以被注册'
+                })
+                res.end()
+            }
+        }
+    })
     connection.query(sqlstring, (err, result) => {
         if (err) throw err
         else {
-            if (result.length == 0) {
+            if (result.length != 0) {
                 res.send({
-                    status: 1,
-                    msg: '该用户名未注册'
+                    status: 0,
+                    msg: '该用户名注册成功'
                 })
                 res.end()
-            } else {
-                let response = result[0]
-                if (response.user == username && response.password == password) {
-                    res.send({
-                        status: 0,
-                        msg: '登录成功'
-                    })
-                    res.end()
-                } else {
-                    res.send({
-                        status: 2,
-                        msg: '用户名或者密码有误'
-                    })
-                    res.end()
-                }
             }
         }
     })
