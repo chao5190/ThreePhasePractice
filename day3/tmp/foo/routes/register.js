@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
         username,
         password
     } = req.body;
-    let sqlstring = `SELECT * from user where user='${username}'`
+    let sqlstring = `INSERT * from user where user='${username}'`
     connection.query(sqlstring, (err, result) => {
         if (err) throw err
         else {
