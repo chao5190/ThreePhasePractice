@@ -1,0 +1,44 @@
+<div class="page actionsheet js_show">
+    <div class="page__hd">
+        <h1 class="page__title">ActionSheet</h1>
+        <p class="page__desc">弹出式菜单</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a @click="toggleFocus" href="javascript:;" class="weui-btn weui-btn_default"
+            id="showIOSActionSheet">{{iostitle}}</a>
+        <a @click="toggleFocus2" href="javascript:;" class="weui-btn weui-btn_default"
+            id="showAndroidActionSheet">Android ActionSheet</a>
+    </div>
+    <!--BEGIN actionSheet-->
+    <div>
+        <div @click="click" class="weui-mask" id="iosMask" v-bind:style='style'></div>
+        <div :class="['weui-actionsheet',{'weui-actionsheet_toggle':isFocus}]" id="iosActionsheet">
+            <div class="weui-actionsheet__title">
+                <p class="weui-actionsheet__title-text">这是一个标题，可以为一行或者两行。</p>
+            </div>
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell weui-actionsheet__cell_warn">负向菜单</div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-skin_android" id="androidActionsheet" :style="TorF">
+        <div @click="click2" class="weui-mask"></div>
+        <div class="weui-actionsheet">
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+            </div>
+        </div>
+    </div>
+    <!--END actionSheet-->
+    <div class="page__ft j_bottom">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png"></a>
+    </div>
+</div>
