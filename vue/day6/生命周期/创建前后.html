@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                name: 'chao'
+            },
+            render() {},
+            beforeCreate() {
+                console.log('-------beforeCreate--------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            created() {
+                console.log('--------created-------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            beforeMount() {
+                console.log('--------beforeMount------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            render(h) {
+                console.log('-------render--------');
+                let vdom2 = h('p', null, this.name)
+                vdom2.tag = 'div'
+                let vdom = h('div', null, [vdom2])
+                console.log(vdom, vdom2);
+                return vdom
+            },
+            mounted() {
+                console.log('-----mounted------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            }
+        })
+    </script>
+</body>
+
+</html>

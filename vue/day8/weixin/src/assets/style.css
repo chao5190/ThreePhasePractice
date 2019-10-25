@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+  background-color: red;
+  color: white;
+  position: fixed;
+  z-index: 1000;
+}
+
+.weui-tabbar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.weui-search-bar{
+  top:50px;
+}
+.weui-panel__ft{
+  margin-bottom: 50px;
+}
+.weui-panel{
+  margin-top: 50px;
+}

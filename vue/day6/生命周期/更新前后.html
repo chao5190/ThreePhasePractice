@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更新</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                name: 'chao'
+            },
+
+            template: `
+                <div>
+                    <input v-model="name" />
+                    <p v-text="name"></p>
+                </div>
+            `,
+
+            beforeCreate() {
+                console.log('-------beforeCreate--------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            created() {
+                console.log('--------created-------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            beforeMount() {
+                console.log('--------beforeMount------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+
+            mounted() {
+                console.log('-----mounted------');
+                console.log('V', this.$el);
+                console.log('M', this.$data);
+            },
+            beforeUpdate() {
+                console.log('-------beforeUpdate-------');
+                console.log('V', this.$el.innerHTML);
+                console.log('M', this.$data);
+            },
+            updated() {
+                console.log('---------updated--------');
+                console.log("V", this.$el.innerHTML);
+                console.log('M', this.$data);
+
+            }
+        })
+    </script>
+</body>
+
+</html>
