@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div>123</div>
     <div id="demo"></div>
     <script>
         const vm = new Vue({
@@ -30,6 +31,9 @@
             },
             beforeMount() {
                 console.log('--------beforeMount------');
+                let a = document.body
+                console.log(a);
+
                 console.log('V', this.$el);
                 console.log('M', this.$data);
             },
